@@ -1,0 +1,71 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
+
+:root {
+  color-scheme: dark;
+}
+
+/* Smooth theme transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans;
+  /* Do NOT set a gradient here so the index.html background image shows */
+  /* background: radial-gradient(circle at top, #e0f2fe 0, #0f172a 45%, #020617 100%); */
+}
+
+/* 3D-style neon background: disabled so it doesn't cover the body image */
+.neo-3d-bg {
+  /* class kept for compatibility, but no background applied */
+}
+
+.neo-3d-bg::before,
+.neo-3d-bg::after {
+  content: none;
+}
+
+/* Custom backdrop blur utility */
+@layer utilities {
+  .backdrop-blur-glass {
+    backdrop-filter: blur(18px);
+  }
+}
+
+/* Neutral glass card: transparent, blurry, no neon */
+.glass-card {
+  @apply bg-white/10 backdrop-blur-glass border border-white/15 rounded-2xl shadow-lg;
+}
+
+/* Simple scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.453);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Hourly slider – neutral styling */
+.hourly-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #e5e7eb; /* neutral gray */
+  box-shadow: 0 0 10px rgba(15, 23, 42, 0.7);
+}
+.hourly-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #9ca3af, #6b7280, #4b5563);
+}
